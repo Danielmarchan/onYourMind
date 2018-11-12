@@ -12,9 +12,27 @@
         <!--Custom CSS-->
         <link href="css/main.css" rel="stylesheet"/>
 
-        <title>Title</title>
+        <title>onYourMind</title>
     </head>
-    <body>
+    <body class="text-center py-5">
+        <h1 id="logo">onYourMind</h1>
+        <br>
+        <p>
+            Day to day life can be very stressful, we have so much on our minds, but sometimes we don't have someone who can listen to our crazy thougts.
+        </p>
+        <p>
+            With onYourMind you can write down any crazy thought you have, because sometimes all you need is to get it out of your system!
+        </p>
+        <form class="container py-5" id="thought-form">
+            <input type="text" placeholder="Subject" class="form-control" id="subject">
+            <br>
+            <textarea class="form-control" id="thought" rows="3" placeholder="Thought"></textarea>
+            <br>
+            <button type="button" class="btn btn-info" onclick="displayThought()">Enter your thought</button>
+        </form>
+        <div id="thoughts-display" class="text-justify container">
+
+        </div>
 
         <!--jQuery-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
