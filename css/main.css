@@ -1,0 +1,19 @@
+html {
+    font-size: 18px;
+}
+body {
+    font-family: 'Dosis', sans-serif;
+    background-color: #F3F3F3;
+    color: #0F1F5B;
+}
+#logo {
+    font-family: 'Lobster', cursive;
+    color: #1394E0;
+}
+.btn-info, .btn-info:hover {
+    background-color: #1394E0;
+    border-color: #1394E0;
+}
+.btn-info.focus, .btn-info:focus {
+    box-shadow: 0 0 0 0.2rem rgba(19,148,224,.5);
+}

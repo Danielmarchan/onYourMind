@@ -12,7 +12,7 @@ function displayThought() {
 
     /*Thought div*/
     var d_div = document.createElement("div");
-    d_div.id.className = "py-5";
+    d_div.className = "mb-5";
 
     /*Thougtt elements*/
     var d_Subject = document.createElement("h3");
