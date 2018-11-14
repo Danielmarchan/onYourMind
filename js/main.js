@@ -14,30 +14,92 @@ function displayThought() {
     var d_div = document.createElement("div");
     d_div.className = "mb-5";
 
-    /*Thougtt elements*/
+    /*Thougt elements*/
     var d_Subject = document.createElement("h3");
     var d_dateTime = document.createElement("h6");
     var d_thought = document.createElement("p");
+    var editInput = document.createElement("input");
+    var state_div = document.createElement("div");
 
     /*Element content*/
     d_Subject.textContent = subject;
     d_dateTime.textContent = dateTime;
     d_thought.textContent = thought;
-
+    d_thought.style.whiteSpace = "pre";
+    d_thought.id = "thought-text";
+    editInput.type = "textarea";
+    editInput.rows = 3;
+    editInput.className = "form-control";
+    editInput.style.whiteSpace = "pre-wrap";
+    editInput.style.display = "none";
+    
+    
+    state_div.appendChild(d_thought);
+    state_div.appendChild(editInput);
+            
     /*Delete button*/
     var deleteButton = document.createElement("button");
     deleteButton.type ="button";
     deleteButton.className = "btn btn-danger btn-sm my-2";
     deleteButton.textContent = "Delete thought";
-    deleteButton.onclick = function() {
-        thoughtDiv.removeChild(d_div);
+    function deleteB() {
+        thoughtDiv.removeChild(event.target.parentElement);
     }
-    console.log(deleteButton);
+    deleteButton.onclick = function() {
+        deleteB();
+    };
+    
+    /*Edit Button*/
+    var editButton = document.createElement("button");
+    editButton.type ="button";
+    editButton.className = "btn btn-info btn-sm my-2 mr-2";
+    editButton.textContent = "Edit thought";
+    editButton.setAttribute("state", "display")
+    
+    function editB() {
+        console.log(event.target);
+        if (event.target.getAttribute("state") == "display") {
+            /*Hide text*/
+            d_thought.style.display = "none";
+            
+            /*Assign value*/
+            editInput.value = d_thought.textContent;
+            
+            /*Display input*/
+            editInput.style = "initial";
+            
+            /*Button text*/
+            event.target.textContent = "Update";
+            
+            /*Switch state*/
+            event.target.setAttribute("state", "input");
+        }
+        else {
+            /*Hide input*/
+            editInput.style.display = "none";
+            
+            /*Assign value*/
+            d_thought.textContent = editInput.value;
+            
+            /*Display text*/
+            d_thought.style = "initial";
+            
+            /*Button text*/
+            event.target.textContent = "Edit thought";
+            
+            /*Switch state*/
+            event.target.setAttribute("state", "display");
+        }
+    }
+    editButton.onclick = function() {
+        editB();
+    };
 
     /*Append to div*/
     d_div.appendChild(d_Subject);
     d_div.appendChild(d_dateTime);
-    d_div.appendChild(d_thought);
+    d_div.appendChild(state_div);
+    d_div.appendChild(editButton);
     d_div.appendChild(deleteButton);
 
     /*Append to document*/
