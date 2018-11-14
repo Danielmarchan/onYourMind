@@ -1,14 +1,12 @@
-var counter = 0;
 var thoughtDiv = document.getElementById("thoughts-display");
 
 /*Display a thought*/
 function displayThought() {
-    counter++;
-
     /*Get input values*/
     var subject = document.getElementById("subject").value;
     var dateTime = new Date().toLocaleString();
     var thought = document.getElementById("thought").value;
+    
 
     /*Thought div*/
     var d_div = document.createElement("div");
@@ -18,7 +16,7 @@ function displayThought() {
     var d_Subject = document.createElement("h3");
     var d_dateTime = document.createElement("h6");
     var d_thought = document.createElement("p");
-    var editInput = document.createElement("input");
+    var editInput = document.createElement("textarea");
     var state_div = document.createElement("div");
 
     /*Element content*/
@@ -27,10 +25,9 @@ function displayThought() {
     d_thought.textContent = thought;
     d_thought.style.whiteSpace = "pre";
     d_thought.id = "thought-text";
-    editInput.type = "textarea";
     editInput.rows = 3;
     editInput.className = "form-control";
-    editInput.style.whiteSpace = "pre-wrap";
+    editInput.style.whiteSpace = "pre";
     editInput.style.display = "none";
     
     
@@ -83,6 +80,7 @@ function displayThought() {
             
             /*Display text*/
             d_thought.style = "initial";
+            d_thought.style.whiteSpace = "pre";
             
             /*Button text*/
             event.target.textContent = "Edit thought";
