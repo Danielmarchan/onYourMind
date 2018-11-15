@@ -80,7 +80,7 @@ function displayThought() {
             
             /*Display text*/
             d_thought.style = "initial";
-            d_thought.style.whiteSpace = "pre";
+            d_thought.style.whiteSpace = "pre-wrap";
             
             /*Button text*/
             event.target.textContent = "Edit thought";
