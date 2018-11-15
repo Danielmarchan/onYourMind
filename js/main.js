@@ -27,7 +27,7 @@ function displayThought() {
     d_thought.id = "thought-text";
     editInput.rows = 3;
     editInput.className = "form-control";
-    editInput.style.whiteSpace = "pre";
+    editInput.style.whiteSpace = "pre-wrap";
     editInput.style.display = "none";
     
     
